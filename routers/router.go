@@ -14,7 +14,7 @@ import (
 
 func init() {
 	ns := beego.NewNamespace("/api",
-		beego.NSBefore(controllers.Auth),
+		//beego.NSBefore(controllers.Auth),
 		beego.NSInclude(
 			&controllers.ObjectController{},
 			),

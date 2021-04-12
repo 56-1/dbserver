@@ -23,6 +23,16 @@ func GetInstance(who, doWhat string)(u Union, method func(u Union, ormer orm.Orm
 	switch who {
 	case "user":
 		u = new(models.User)
+	case "usermanage":
+		u = new(models.UserManage)
+	case "device":
+		u = new(models.DevManage)
+	case "chan":
+		u = new(models.ChanManage)
+	case "organization":
+		u = new(models.DevOrgManage)
+	default:
+		return
 	}
 
 	method = operate[doWhat]

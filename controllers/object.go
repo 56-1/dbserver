@@ -2,7 +2,6 @@ package controllers
 
 import (
 	beego "github.com/beego/beego/v2/server/web"
-	"log"
 )
 
 // Operations about object
@@ -32,10 +31,9 @@ func (o *ObjectController) Post() {
 
 	result, err := operate(u, Orm, o.Ctx.Input.RequestBody)
 	if err != nil {
-		log.Printf("in object post %v\n", err.Error())
 		msg := map[string]interface{}{
 			"ret": 0,
-			"message": "server error",
+			"message": err.Error(),
 		}
 		o.Data["json"] = &msg
 		o.ServeJSON()
